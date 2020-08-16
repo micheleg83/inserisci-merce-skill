@@ -7,7 +7,12 @@ class InserisciMerce(MycroftSkill):
 
     @intent_file_handler('merce.inserisci.intent')
     def handle_merce_inserisci(self, message):
-        self.speak_dialog('merce.inserisci')
+    	date2 = message.data.get('date')
+		date_str = str(date2)
+		if date2:
+			self.speak_dialog('Inserisco viaggio per ' + date_str )
+		else:
+        	self.speak_dialog('merce.inserisci')
 
 
 def create_skill():
